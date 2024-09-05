@@ -1,15 +1,28 @@
-from django.http import JsonResponse
 from .models import Student
 from .serializers import StudentSerializer
+from .serializers import StudentSerializer
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 
-# Display all objects (records or Rows) from Student table  
-def students_api(request):
-    student = Student.objects.all()
-    serializer = StudentSerializer(student, many=True)
-    return JsonResponse(serializer.data, safe=False)
+class StudentList(ListAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
 
-# Display particular object (record or Row) from Student table  
-def student_api(request, id):
-    student = Student.objects.get(id=id)
-    serializer = StudentSerializer(student)
-    return JsonResponse(serializer.data, safe=False)
+class StudentCreate(CreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+class StudentRetreive(RetrieveAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+class StudentUpdate(UpdateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+class StudentDestroy(DestroyAPIView):
+    queryset= Student.objects.all()
+    serializer_class=StudentSerializer
+
+
+    
+    
