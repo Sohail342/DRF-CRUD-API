@@ -179,6 +179,10 @@ This action allows users to delete a student record by specifying the student's 
 #### **Response**
 If the deletion is successful, the API will return a 204 No Content status code, indicating that the resource has been deleted successfully.
 
+## Postman collection
+
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://god.gw.postman.com/run-collection/38153419-35520dff-5abd-464b-99b1-9d061852626d?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D38153419-35520dff-5abd-464b-99b1-9d061852626d%26entityType%3Dcollection%26workspaceId%3De7fae917-78c7-45b0-9767-7d03217bbf10)
+
 
 ## DRF browserable API overview
 
