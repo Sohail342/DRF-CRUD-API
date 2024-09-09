@@ -261,6 +261,12 @@ You can interact with the API endpoints using various tools and methods, such as
 
 ### Accessing API endpoints using HTTPie
 
+first install the httpie (if not installed)
+
+```bash
+pip install httpie
+```
+
 **note :** before accessing API endpoints you must have;
 
 - Run database migrations
