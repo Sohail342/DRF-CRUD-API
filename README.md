@@ -17,6 +17,8 @@ This API allows users to manage student records by performing the following acti
 
 - **Delete** student profiles when no longer needed
 
+- **Authentication with JWT (JSON Web Tokens)** to secure access to the API endpoints.
+
 
 ## API Endpoints
 
@@ -28,7 +30,7 @@ This API allows users to manage student records by performing the following acti
 
 | Parameter            | Type  | Description                | Method |
 | :------------------- | :---- | :------------------------- | :----- |
-| `No parameter` | `Null` | **List**. Retrieve all students data | `GET` |
+| `No parameter` | `N/A` | **List**. Retrieve all students data | `GET` |
 
 
 #### Get item
@@ -49,7 +51,7 @@ This API allows users to manage student records by performing the following acti
 
 | Parameter            | Type  | Description                | Method |
 | :------------------- | :---- | :------------------------- | :----- |
-| `No parameter` | `Null` | **Create**. new student records | `POST` |
+| `No parameter` | `N/A` | **Create**. new student records | `POST` |
 
 
 #### Complete Update item
@@ -83,6 +85,15 @@ This API allows users to manage student records by performing the following acti
 | `id` | `int` | **Required**. Id of item to delete | `DELETE` |
 
 
+#### Authentication
+
+| Endpoint               | Method | Description                        | Parameters |
+|------------------------|--------|------------------------------------|------------|
+| `/api/token/`           | POST   | Obtain a JWT access and refresh token | N/A        |
+| `/api/refresh/token/`   | POST   | Refresh the JWT access token       | N/A        |
+
+
+
 ##  Endpoint Details
 
 #### **1. Create a New Student Record**
@@ -111,13 +122,13 @@ If the request is valid and the data passes validation, the API will create a ne
 
 - Method: GET
 - Endpoint: api/list/ (Retrieve all students)
-- Endpoint: api/list/id/ (Retrieve a single student by ID)
+- Endpoint: api/list/<id>/ (Retrieve a single student by ID)
 
 This action allows users to read student records from the system.
 
 #### **Request Format**
-- GET api/list/: No data needs to be sent, just make the GET request.
-- GET api/list/2/: This retrieves the student with the ID 2.
+- GET /list/: No data needs to be sent, just make the GET request.
+- GET /list/2/: This retrieves the student with the ID 2.
 
 
 #### **Response**
@@ -136,14 +147,14 @@ The API responds with a JSON array (for all students) or a JSON object (for a sp
 #### **3. Update an Existing Student Record**
 
 - Method: PUT (Full update) or PATCH (Partial update)
-- Endpoint: api/update/id/
+- Endpoint: api/update/<id>/
 This action allows users to update the details of an existing student:
 
 - **PUT:** Updates all fields of the student record.
 - **PATCH:** Updates only the specific fields that are provided in the request.
 
 #### **Request Format**
-- PUT api/update/1/ (Full update):
+- PUT /update/1/ (Full update):
 
 ```bash
 {
@@ -153,7 +164,7 @@ This action allows users to update the details of an existing student:
   "city": "Lahore"
 }
 ```
-- PATCH api/update/4/ (Partial update):
+- PATCH /update/4/ (Partial update):
 
 ```bash
 {
@@ -168,7 +179,7 @@ If the update is successful, the API will return the updated student record alon
 #### **4. Delete a Student Record**
 
 - Method: DELETE
-- Endpoint: api/destroy/id/
+- Endpoint: api/destroy/<id>/
 
 This action allows users to delete a student record by specifying the student's ID. Once deleted, the record is permanently removed from the database.
 
@@ -179,9 +190,30 @@ This action allows users to delete a student record by specifying the student's 
 #### **Response**
 If the deletion is successful, the API will return a 204 No Content status code, indicating that the resource has been deleted successfully.
 
-## Postman collection
 
-[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://god.gw.postman.com/run-collection/38153419-35520dff-5abd-464b-99b1-9d061852626d?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D38153419-35520dff-5abd-464b-99b1-9d061852626d%26entityType%3Dcollection%26workspaceId%3De7fae917-78c7-45b0-9767-7d03217bbf10)
+#### **5. Authentication**
+This API uses JWT (JSON Web Token) for secure access. To use the API endpoints, you first need to authenticate and obtain an access token by posting your credentials to /api/token/. After receiving the token, include it in the Authorization header of your requests.
+
+##### **Steps for Authentication:**
+
+- **Obtain Token:** Post your username and password to /api/token/ to get a JWT.
+- **Access Token:** Use the access token to authenticate API requests by including it in the Authorization header.
+- **Refresh Token:** If the access token expires, you can use the refresh token to get a new one via /api/refresh/token/.
+
+#### **Request format for access token**
+```bash
+{
+    "username": "your_username",
+    "password": "your_password"
+}
+```
+#### **Response**
+```bash
+{
+    "refresh": "your_refresh_token",
+    "access": "your_access_token"
+}
+```
 
 
 ## Installation
@@ -189,6 +221,7 @@ If the deletion is successful, the API will return a 204 No Content status code,
 1. **Clone the repository:**
     ```bash
     https://github.com/Sohail342/DRF-CRUD-API.git
+    cd DRF_CRUD
     ```
 
 2. **Create a virtual environment:** (optional but recommended)
@@ -201,7 +234,7 @@ If the deletion is successful, the API will return a 204 No Content status code,
     ```bash
     pip install -r requirements.txt
     ```
-    **Be sure in project directory to install requirements.txt**
+    **Be sure in project directory to install requirements.txt** 
 
 4. **Make migrations:**
     ```bash
@@ -223,16 +256,59 @@ If the deletion is successful, the API will return a 204 No Content status code,
     python manage.py runserver
     ```
 
-8. **Access the browserable API:**
-    Open your browser and go to `http://127.0.0.1:8000/api/list`
+## How to access API endpoints
+You can interact with the API endpoints using various tools and methods, such as Postman, HTTPie, or even curl. Here we are going to use both postman and httpie (third party package) to interact with endpoints.
 
+### Accessing API endpoints using HTTPie
 
+**note :** before accessing API endpoints you must have;
+
+- Run database migrations
+- Create superuser or user
+- Access token
+- Run local server
+
+**Hit** the following endpoints to get access token;
+
+```bash
+http POST http://127.0.0.1:8000/api/token username=your_username password=your_password
+```
+Replace your_username with the username you created and your_password with your password. The token generated will be valid for the user you created. By default, the access token is valid for 5 minutes, and the refresh token is valid for 1 day (these default values can be overridden).
+
+Now you can use your access token to access student API endpoints.
+
+**1. List the Students list**
+```bash
+http GET http://127.0.0.1:8000/api/list/ Authorization:"Bearer <your_token>"
+```
+
+**2. Create new Student**
+```bash
+http POST http://127.0.0.1:8000/api/create/ name=Sohail city=Karachi roll_no=231 Authorization:"Bearer <your_token>"
+```
+
+**3. Partial update**
+```bash
+http PATCH http://127.0.0.1:8000/api/update/1 name=Sidra Authorization:"Bearer <your_token>"
+```
+
+**4. Delete record**
+```bash
+http DELETE http://127.0.0.1:8000/api/destroy/1 Authorization:"Bearer <your_token>"
+```
+
+Once your access token is expired you may generate token again or using refresh token you generate new access token.
+
+#### **Using Refresh token**
+```bash
+http POST http://127.0.0.1:8000/api/refresh/token refresh="<your_refresh_token>"
+```
 
 ## Tech Stack
 
-**Server:** Django, Python
+**Server side:** Django, Python
 
-**RESTful API:** Django RESTful Framework (DRF)
+**RESTful API:** Dajango RESTful Framework (DRF)
 
 
 ## Contact

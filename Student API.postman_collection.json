@@ -1,0 +1,742 @@
+{
+	"info": {
+		"_postman_id": "d3181d57-9f59-4c97-bbda-863b49efa580",
+		"name": "Student API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38153419",
+		"_collection_link": "https://www.postman.com/sohail342/api/collection/ycirphu/student-api?action=share&source=collection_link&creator=38153419"
+	},
+	"item": [
+		{
+			"name": "Generate Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Generate Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 09:06:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "483"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyNTk1OTE3MSwiaWF0IjoxNzI1ODcyNzcxLCJqdGkiOiI1YTljNGU1NTBjZDU0YjVhOTM1MTljYTA2Mjk4YjlkOCIsInVzZXJfaWQiOjF9.k80ivfKz-NCsJEC0ZWO5o24vBhL21iCqEC-t9rbdpmQ\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1ODczMDcxLCJpYXQiOjE3MjU4NzI3NzEsImp0aSI6Ijk5Mjg5ZTljZmVmMTQxZmNhMGZkZjI0NTJkNGIzYzg0IiwidXNlcl9pZCI6MX0.DQWGQ5sbFR0KgelLyZlTN_7deGLxglyMTiEMB3sY55w\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List  all students (GET )",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1ODczOTE3LCJpYXQiOjE3MjU4Njk3OTcsImp0aSI6IjJhZWEzOTNiODBkZTRiYjViMmYyMTM0YjQzMWFiNDUzIiwidXNlcl9pZCI6MX0.GeZub0VX7OnUe3kB59eZGQW3jJ46Nha9XGiOqyBVFPI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/list/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"list",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List  all students (GET )",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/list/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"list",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 09:23:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "689"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Sidra\",\n        \"roll_no\": 900,\n        \"email\": \"amina@gmail.com\",\n        \"city\": \"Islamabad\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Sohail Ahmad\",\n        \"roll_no\": 984,\n        \"email\": \"sohailahmed34280@gmail.com\",\n        \"city\": \"Hunza\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Govinda\",\n        \"roll_no\": 321,\n        \"email\": \"govin@gmail.com\",\n        \"city\": \"Lahore\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Sajjad Ali\",\n        \"roll_no\": 1077,\n        \"email\": \"sajjad@gmail.com\",\n        \"city\": \"lahore\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Hidaya\",\n        \"roll_no\": 420,\n        \"email\": \"hidayat32@gmail.com\",\n        \"city\": \"Kabul\"\n    },\n    {\n        \"id\": 12,\n        \"name\": \"Amir\",\n        \"roll_no\": 987,\n        \"email\": \"amir23@gmail.com\",\n        \"city\": \"Karachi\"\n    },\n    {\n        \"id\": 13,\n        \"name\": \"Bilal\",\n        \"roll_no\": 123,\n        \"email\": \"bilal@gmail.com\",\n        \"city\": \"Dehli\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"Huzaifa latif\",\n        \"roll_no\": 122,\n        \"email\": \"hunzaifa@gmail.com\",\n        \"city\": \"Karachi\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Retrieve student ID with 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1ODczOTE3LCJpYXQiOjE3MjU4Njk3OTcsImp0aSI6IjJhZWEzOTNiODBkZTRiYjViMmYyMTM0YjQzMWFiNDUzIiwidXNlcl9pZCI6MX0.GeZub0VX7OnUe3kB59eZGQW3jJ46Nha9XGiOqyBVFPI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/list/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"list",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Retrieve student ID with 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/list/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"list",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 09:25:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "96"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"Sohail Ahmad\",\n    \"roll_no\": 984,\n    \"email\": \"sohailahmed34280@gmail.com\",\n    \"city\": \"Hunza\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Student record",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1ODc0NDk4LCJpYXQiOjE3MjU4Njk3OTcsImp0aSI6ImZiYTM3YTQxMWQyNzRkOTA4ZmExNTZmZWRiNmUyMTE3IiwidXNlcl9pZCI6MX0.OLoDx9M8Qppl4RwVdVDfyotKybvktchG-p-zChYoOOU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Afzal Ahmad\",\r\n        \"roll_no\": 123,\r\n        \"email\": \"afzal@gmail.com\",\r\n        \"city\": \"Lahore\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"create",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Student record",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Afzal Ahmad\",\r\n        \"roll_no\": 123,\r\n        \"email\": \"afzal@gmail.com\",\r\n        \"city\": \"Lahore\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/create/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"create",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 09:30:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "86"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 15,\n    \"name\": \"Afzal Ahmad\",\n    \"roll_no\": 123,\n    \"email\": \"afzal@gmail.com\",\n    \"city\": \"Lahore\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Partial records",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1ODc0ODUwLCJpYXQiOjE3MjU4Njk3OTcsImp0aSI6Ijc3N2QwZjI3YzI2MTQ0YTU5YjM5OTIzNzJmZDA1YzBlIiwidXNlcl9pZCI6MX0.-tFBIS1WXIDXfSrqNKl_0YE3HTMkwhjVcxgrHdzy9qY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\":\"Islamabad\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/update/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"update",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Partial records",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\":\"Islamabad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/update/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"update",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 09:44:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, PUT, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"Ali\",\n    \"roll_no\": 121,\n    \"email\": \"ali@gmail.com\",\n    \"city\": \"Islamabad\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Complete update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1ODc1MjY4LCJpYXQiOjE3MjU4Njk3OTcsImp0aSI6IjYyMTBjYmIwZDc2ODRmZWZiODg1MTMxMzAyMWY1MTc0IiwidXNlcl9pZCI6MX0.tIh13YzpyyK-2rwdO_gUGnIW-92_UBvSOhiSRTlD18Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ali\",\r\n    \"roll_no\": 121,\r\n    \"email\": \"ali@gmail.com\",\r\n    \"city\": \"Lahore\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/update/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"update",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Complete update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ali\",\r\n    \"roll_no\": 121,\r\n    \"email\": \"ali@gmail.com\",\r\n    \"city\": \"Lahore\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/update/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"update",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 09 Sep 2024 09:43:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "PATCH, PUT, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"Ali\",\n    \"roll_no\": 121,\n    \"email\": \"ali@gmail.com\",\n    \"city\": \"Lahore\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Record",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1ODc1MjY4LCJpYXQiOjE3MjU4Njk3OTcsImp0aSI6IjYyMTBjYmIwZDc2ODRmZWZiODg1MTMxMzAyMWY1MTc0IiwidXNlcl9pZCI6MX0.tIh13YzpyyK-2rwdO_gUGnIW-92_UBvSOhiSRTlD18Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/destroy/14/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"destroy",
+						"14",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
