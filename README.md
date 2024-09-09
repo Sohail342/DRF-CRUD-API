@@ -122,7 +122,7 @@ If the request is valid and the data passes validation, the API will create a ne
 
 - Method: GET
 - Endpoint: api/list/ (Retrieve all students)
-- Endpoint: api/list/<id>/ (Retrieve a single student by ID)
+- Endpoint: api/list/id/ (Retrieve a single student by ID)
 
 This action allows users to read student records from the system.
 
@@ -147,7 +147,7 @@ The API responds with a JSON array (for all students) or a JSON object (for a sp
 #### **3. Update an Existing Student Record**
 
 - Method: PUT (Full update) or PATCH (Partial update)
-- Endpoint: api/update/<id>/
+- Endpoint: api/update/id/
 This action allows users to update the details of an existing student:
 
 - **PUT:** Updates all fields of the student record.
@@ -179,7 +179,7 @@ If the update is successful, the API will return the updated student record alon
 #### **4. Delete a Student Record**
 
 - Method: DELETE
-- Endpoint: api/destroy/<id>/
+- Endpoint: api/destroy/id/
 
 This action allows users to delete a student record by specifying the student's ID. Once deleted, the record is permanently removed from the database.
 
@@ -274,7 +274,7 @@ pip install httpie
 - Access token
 - Run local server
 
-**Hit** the following endpoints to get access token;
+**Hit** the following endpoint to get access token;
 
 ```bash
 http POST http://127.0.0.1:8000/api/token username=your_username password=your_password
