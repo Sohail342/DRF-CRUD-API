@@ -277,7 +277,7 @@ pip install httpie
 **Hit** the following endpoint to get access token;
 
 ```bash
-http POST http://127.0.0.1:8000/api/token username=your_username password=your_password
+http POST http://127.0.0.1:8000/api/token/ username=your_username password=your_password
 ```
 Replace your_username with the username you created and your_password with your password. The token generated will be valid for the user you created. By default, the access token is valid for 5 minutes, and the refresh token is valid for 1 day (these default values can be overridden).
 
@@ -295,19 +295,19 @@ http POST http://127.0.0.1:8000/api/create/ name=Sohail city=Karachi roll_no=231
 
 **3. Partial update**
 ```bash
-http PATCH http://127.0.0.1:8000/api/update/1 name=Sidra Authorization:"Bearer <your_token>"
+http PATCH http://127.0.0.1:8000/api/update/1/ name=Sidra Authorization:"Bearer <your_token>"
 ```
 
 **4. Delete record**
 ```bash
-http DELETE http://127.0.0.1:8000/api/destroy/1 Authorization:"Bearer <your_token>"
+http DELETE http://127.0.0.1:8000/api/destroy/1/ Authorization:"Bearer <your_token>"
 ```
 
 Once your access token is expired you may generate token again or using refresh token you generate new access token.
 
 #### **Using Refresh token**
 ```bash
-http POST http://127.0.0.1:8000/api/refresh/token refresh="<your_refresh_token>"
+http POST http://127.0.0.1:8000/api/refresh/token/ refresh="<your_refresh_token>"
 ```
 
 ## Tech Stack
